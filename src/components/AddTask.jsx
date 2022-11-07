@@ -3,13 +3,21 @@ import "./AddTask.css";
 import Button from "./Button";
 import { useState } from "react";
 
-const AddTask = () => {
-  const [inputData, setInputData] = useState("kkkkkooo");
 
+// addtask recebe as props de onde ele esta instaciado, no caso no app , recebe a funcao que criar novos objetos numa lista de objetos ja existentes
+const AddTask = ({handleTaskAddition}) => {
+  const [inputData, setInputData] = useState("");
+
+  //funcao pra pegar o valor do input
   const handleInputChange = (e) => {
   setInputData(e.target.value)
-
   };
+
+  //funcao do onclick para adicionar nova tarefa ao array de objetos que contem as tarefas
+  const handleAddTaskClick=()=>{
+    handleTaskAddition(inputData)
+
+  }
 
   return (
     <div className="add-task-container">
@@ -21,7 +29,7 @@ const AddTask = () => {
       type="text" />
 
       <div className="add-task-button-container">
-        <Button>Adicionar</Button>
+        <Button onclick={handleAddTaskClick}>Adicionar</Button>
       </div>
 
     </div>
