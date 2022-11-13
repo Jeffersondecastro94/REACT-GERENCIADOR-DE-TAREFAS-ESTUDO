@@ -4,6 +4,7 @@ import AddTask from "./components/AddTask";
 import "./components/Tasks";
 import Tasks from "./components/Tasks";
 import {v4 as uuidv4} from 'uuid'
+import Header from "./components/Header";
 const App = () => {
   //TASK É UM ARRAY QUE ESTA COMO STATE, O QUE POSSIBILITA SOFRER ALTERACAOES, UTILIZANDO A FUNCAO DO SEGUNDO PARAMETRO
   const [tasks, setTasks] = useState([
@@ -56,6 +57,7 @@ const handleTaskDeletion=(taskId)=>{
   return (
     <>
       <div className="container">
+          <Header/>
           <AddTask handleTaskAddition ={handleTaskAddition}/>
           <Tasks 
           tasks={tasks} 
